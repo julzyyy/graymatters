@@ -2,7 +2,7 @@ const Header = () => {
   return (
     <div className="max-w-6xl mx-auto flex justify-end space-x-7 py-5 px-3">
       <a
-        href="https://twitter.com/simpletonsxyz"
+        href="https://twitter.com/graymattersxyz"
         target="_blank"
         rel="noreferrer"
       >
