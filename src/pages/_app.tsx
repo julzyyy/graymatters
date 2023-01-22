@@ -13,7 +13,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <WagmiConfig client={client}>
       <Head>
-        <title>the simpletons</title>
+        <title>gray matters</title>
       </Head>
       <Component {...pageProps} />
     </WagmiConfig>
