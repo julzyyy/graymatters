@@ -290,7 +290,7 @@ const HeroSection = () => {
 
             <p style={{color: "black"}} className="mb-5 text-center font-bold text-lg">
 
-            A simple CCO nft project | 3333 at 0.03e
+            Text section where we can add any info we like
 
             </p>
 
