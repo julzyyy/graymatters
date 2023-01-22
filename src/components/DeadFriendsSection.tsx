@@ -2,7 +2,7 @@ const DeadFriendsSection = () => {
   return (
     <div className="relative min-h-auto bg-no-repeat bg-cover flex justify-center items-center">
    <a
-        href="https://medium.com/@thesimpletons"
+        href="https://twitter.com/graymattersxyz"
         target="_blank"
         rel="noreferrer"
       >
