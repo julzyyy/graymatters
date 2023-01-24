@@ -288,7 +288,7 @@ const HeroSection = () => {
 
           <div className="px-12 text-zinc-50">
 
-            <p style={{color: "black"}} className="mb-5 text-center font-bold text-lg">
+            <p style={{color: "white" bg-color: "black"}} className="mb-5 text-center font-bold text-medium">
 
             Riley experienced a brain aneurysm on Thanksgiving and has been living without a large piece of his skull for the last two months. Through the help of friends and family, we've created a small nft collection that will serve as a fundraiser for his 1st and 2nd surgeries.  
             He is currently undergoing surgery to remove the avm and replace his skull.
