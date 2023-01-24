@@ -151,7 +151,7 @@ const HeroSection = () => {
 
       setButtonDisabled(false);
 
-      setButtonText("Simply Mint");
+      setButtonText("Pledge Your Support");
 
     } else {
 
@@ -200,7 +200,7 @@ const HeroSection = () => {
 
       setTx("");
 
-      setButtonText("You'll have your simpletons soon.");
+      setButtonText("Hold tight, your Big Brain is being generated");
 
       const transaction = await mintNFT();
 
@@ -245,7 +245,7 @@ const HeroSection = () => {
 
       setButtonDisabled(true);
 
-      setButtonText("Simply Sold Out, Sorry");
+      setButtonText("SOLD OUT");
 
       return;
 
@@ -284,13 +284,14 @@ const HeroSection = () => {
 
         <div className="flex-[1.3] flex flex-col md:justify-center items-center mt-10 md:mt-0">
 
-          <img src="/images/GG-logo.png" alt="The Simpletons" className="mt-0 md:-mt-8" />
+          <img src="/images/GG-logo.png" alt="Gray Matters" className="mt-0 md:-mt-8" />
 
           <div className="px-12 text-zinc-50">
 
             <p style={{color: "black"}} className="mb-5 text-center font-bold text-lg">
 
-            Text section where we can add any info we like
+            Riley experienced a brain aneurysm on Thanksgiving and has been living without a large piece of his skull for the last two months. Through the help of friends and family, we've created a small nft collection that will serve as a fundraiser for his 1st and 2nd surgeries.  
+            He is currently undergoing surgery to remove the avm and replace his skull.
 
             </p>
 
@@ -300,7 +301,7 @@ const HeroSection = () => {
 
             <button
 
-              style = {{fontSize:"50px", marginBottom: "0px", marginTop: "25px", backgroundColor: "black"}}
+              style = {{fontSize:"40px", marginBottom: "0px", marginTop: "25px", backgroundColor: "black"}}
 
               className="text-2xl border-0 w-[33%] py-3 font-bold bg-zinc-900/60 backdrop-blur-sm disabled:opacity-100"
 
@@ -354,7 +355,7 @@ const HeroSection = () => {
 
             <button
 
-              style = {{fontSize:"50px", marginBottom: "0px", marginTop: "25px", backgroundColor: "black"}}
+              style = {{fontSize:"40px", marginBottom: "0px", marginTop: "25px", backgroundColor: "black"}}
 
               className="text-2xl border-0 w-[33%] py-3 font-bold bg-zinc-900/60 backdrop-blur-sm disabled:opacity-75"
 
@@ -404,7 +405,7 @@ const HeroSection = () => {
 
               <p className="text-green-500 font-bold text-center mt-3">
 
-                All done. That was pretty simple.{" "}
+                All done, thank you for your generous support{" "}
 
                 <a
 
