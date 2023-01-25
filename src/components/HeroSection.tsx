@@ -103,7 +103,7 @@ const HeroSection = () => {
 
       setButtonDisabled(false);
 
-      setButtonText("Place your order");
+      setButtonText("Mint Your Brain");
 
     }
 
@@ -213,7 +213,7 @@ const HeroSection = () => {
 
       setButtonDisabled(false);
 
-      setButtonText("Simply Mint");
+      setButtonText("Mint-A-Brain");
 
     } catch (error: any) {
 
@@ -221,7 +221,7 @@ const HeroSection = () => {
 
       setButtonDisabled(true);
 
-      setButtonText("Simply Mint");
+      setButtonText("Mint-A-Brain");
 
     }
 
