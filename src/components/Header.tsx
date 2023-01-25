@@ -9,7 +9,7 @@ const Header = () => {
         <img src="/images/twitter.png" className="w-[50px]" alt="" />
       </a>
       <a
-          href="https://opensea.io/gray-matters"
+          href="https://opensea.io/collection/gray-matters"
           target="_blank"
           rel="noreferrer"
         >
