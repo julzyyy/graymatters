@@ -151,7 +151,7 @@ const HeroSection = () => {
 
       setButtonDisabled(false);
 
-      setButtonText("Pledge Your Support");
+      setButtonText("Mint Your Brain");
 
     } else {
 
