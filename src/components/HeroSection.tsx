@@ -29,7 +29,6 @@ const HeroSection = () => {
   });
   const { activeChain, switchNetworkAsync } = useNetwork();
 
-  const { data: isFree } = useContractRead(contractInfo, "isFree");
   const { data: price } = useContractRead(contractInfo, "price");
   const { data: totalSupply } = useContractRead(contractInfo, "totalSupply");
   const [mintAmount, setMintAmount] = useState(1);
