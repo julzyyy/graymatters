@@ -1,261 +1,123 @@
 import { InjectedConnector } from "@wagmi/core";
-
 import { useEffect, useState } from "react";
-
 import {
-
   useAccount,
-
   useConnect,
-
   useContractRead,
-
   useContractWrite,
-
   useNetwork,
-
 } from "wagmi";
 
-
-
-
 import { CHAIN_ID, COLLECTION_SIZE, CONTRACT_ADDRESS, MAX_MINT_AMOUNT } from "../config";
-
 import abi from "../lib/Gobbaghouls.json";
-
 import Header from "./Header";
 
-
-
-
 const contractInfo = {
-
   addressOrName: CONTRACT_ADDRESS,
-
   contractInterface: abi,
-
 };
 
-
-
-
 const HeroSection = () => {
-
   const [buttonText, setButtonText] = useState("Connect Wallet");
-
   const [error, setError] = useState("");
-
   const [tx, setTx] = useState("");
-
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
-
-
-
   const { data: account } = useAccount();
-
   const { connect } = useConnect({
-
     connector: new InjectedConnector(),
-
   });
-
   const { activeChain, switchNetworkAsync } = useNetwork();
 
-
-
-
   const { data: isFree } = useContractRead(contractInfo, "isFree");
-
   const { data: price } = useContractRead(contractInfo, "price");
-
   const { data: totalSupply } = useContractRead(contractInfo, "totalSupply");
-
   const [mintAmount, setMintAmount] = useState(1);
 
-
-
-
   const { writeAsync: mintNFT } = useContractWrite(contractInfo, "mint", {
-
     args: [mintAmount],
-
     overrides: {
-
       value: isFree ? 0 : Number(price) * Number(mintAmount),
-
     },
-
   });
 
-
-
-
   const switchNetworks = async () => {
-
     if (account && activeChain?.id != CHAIN_ID && switchNetworkAsync) {
-
       setButtonText("Switching Network...");
-
       setButtonDisabled(true);
-
       await switchNetworkAsync(CHAIN_ID);
-
       setButtonDisabled(false);
-
       setButtonText("Mint Your Brain");
-
     }
-
   };
-
-
-
 
   const decrementMintAmount = () => {
-
     let newMintAmount = mintAmount - 1;
-
     if (newMintAmount < 1) {
-
       newMintAmount = 1;
-
     }
-
     setMintAmount(newMintAmount);
-
   };
-
   
-
   const incrementMintAmount = () => {
-
     let newMintAmount = mintAmount + 1;
-
     if (newMintAmount > MAX_MINT_AMOUNT) {
-
       newMintAmount = MAX_MINT_AMOUNT;
-
     }
-
     setMintAmount(newMintAmount);
-
   };
-
-
-
 
   useEffect(() => {
-
     if (account?.address) {
-
       setButtonDisabled(false);
-
       setButtonText("Mint Your Brain");
-
     } else {
-
       setButtonDisabled(false);
-
       setButtonText("Connect Wallet");
-
     }
-
     switchNetworks();
-
   }, [account]);
 
-
-
-
   useEffect(() => {
-
     switchNetworks();
-
   }, [activeChain?.id]);
 
-
-
-
   const handleButtonClick = async () => {
-
     if (!account) {
-
       await connect();
-
       checkMaxSupply();
-
       return;
-
     }
-
-
-
 
     checkMaxSupply();
-
     try {
-
       setButtonDisabled(true);
-
       setTx("");
-
-      setButtonText("Hold tight, your Big Brain is being generated");
-
+      setButtonText("The waiter is grabbing your sdicks...");
       const transaction = await mintNFT();
-
       const { transactionHash } = await transaction.wait();
 
-
-
-
       setTx(transactionHash);
-
       setButtonDisabled(false);
-
       setButtonText("Mint Your Brain");
-
     } catch (error: any) {
-
       setError(error.message);
-
       setButtonDisabled(true);
-
       setButtonText("Mint Your Brain");
-
     }
-
   };
-
-
-
 
   const checkMaxSupply = () => {
-
     if (!totalSupply) {
-
       return;
-
     }
-
-
-
 
     if (parseInt(totalSupply?.toString()) + 1 > COLLECTION_SIZE) {
-
       setButtonDisabled(true);
-
-      setButtonText("SOLD OUT");
-
+      setButtonText("We are out of brains");
       return;
-
     }
-
   };
-
-
-
-
    return (
 
     <div className="h-screen heroSection bg-bottom bg-cover">
