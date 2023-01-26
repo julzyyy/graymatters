@@ -37,7 +37,7 @@ const HeroSection = () => {
   const { writeAsync: mintNFT } = useContractWrite(contractInfo, "mint", {
     args: [mintAmount],
     overrides: {
-      value: isFree ? 0 : Number(price) * Number(mintAmount),
+      value: Number(price) * Number(mintAmount),
     },
   });
 
